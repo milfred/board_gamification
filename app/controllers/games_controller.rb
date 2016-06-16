@@ -25,6 +25,13 @@ class GamesController < ApplicationController
     @response_body = Crack::XML.parse(File.read(xml_data))
   end
 
+  def results
+    search_q = params[:search]
+    xml_data = open("http://www.boardgamegeek.com/xmlapi/search?search=#{search_q.gsub(" ", "%20")}")
+    read_file = xml_data
+    @response_body = Crack::XML.parse(read_file)
+  end
+
   def destroy
   end
 

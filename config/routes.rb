@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/games/results', to: 'games#results', as: "results"
 
 
+
   resources :sessions, only: [:create]
   resources :users, except: [:patch, :put, :delete, :new]
 
