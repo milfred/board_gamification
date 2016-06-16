@@ -18,4 +18,15 @@ class Group < ActiveRecord::Base
       memberships.create!(member: member)
     end
   end
+
+  def group_games
+    members = self.members
+    games = []
+
+    members.each do |member|
+      games << member.owned_games
+    end
+    games.flatten
+  end
+
 end

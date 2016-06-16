@@ -121,14 +121,43 @@
   height: 200px;
 }
 
+.member {
+  display: inline-block;
+  width: 195px;
+  height: 35px;
+  padding: 15px 0 0;
+  border: 1px solid deepskyblue;
+  margin-bottom: 5px;
+}
+.game {
+  display: inline-block;
+  width: 174px;
+  height: 35px;
+  padding: 15px 0 0;
+  border: 1px solid deepskyblue;
+  margin-bottom: 5px;
+}
+#group-top {
+  margin-top: 100px;
+  border: 1px solid deepskyblue;
+  padding: 0 5px;
+}
+#group-top a, #group-bottom a {
+  text-decoration: none;
+}
 
+#group-bottom {
+  width: 897px;
+  border: 1px solid deepskyblue;
+  margin-top: 70px;
+  padding: 5px 5px 0 5px;
+}
 
+.center-block {
+  width: 600px;
+  margin: 0 auto;
+}
 
-
-
-
-
-
-
-
-
+.center-text {
+  text-align: center;
+}
