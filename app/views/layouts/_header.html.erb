@@ -1,15 +1,16 @@
 <div class="header">
 
   <div class="floating">
-    <h1>Games With Friends</h1>
+    <a href="/"><h1>Games With Friends</h1></a>
   </div>
 
   <div class="search-bar floating">
-    <%= form_tag results_path, :games => 'get' do %>
 
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag("Search") %>
+    <%= form_tag('/games/results', method: :get) do %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag("Search") %>
     <% end %>
+
   </div >
 
   <div class="user-nav floating">
