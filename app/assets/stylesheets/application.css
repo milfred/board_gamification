@@ -31,11 +31,9 @@
 .search-bar, .user-nav{
   width: 200px;
   height: 70px;
+  border: 1px solid black;
 }
 
-.user-nav form {
-  display: inline-block;
-}
 
 .search-bar form {
   padding: 25% 0 0 0;
