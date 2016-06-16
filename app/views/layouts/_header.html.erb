@@ -15,7 +15,11 @@
 
   <div class="user-nav floating">
     <% if session[:user_id] != nil %>
-      <p>You're logged in!</p>
+      <h4><a href="/users/<%= session[:user_id] %>"> <%= User.find(session[:user_id]).username %> </a></h4>
+
+      <% form_for @logout, method: :delete do |f| %>
+        <%= f.submit %>
+      <% end %>
     <% else %>
       <%= render partial: "sessions/login_form" %>
     <% end %>
