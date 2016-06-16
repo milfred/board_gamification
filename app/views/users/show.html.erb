@@ -30,6 +30,38 @@
   </div>
 
   <div class="new-group-button">
+    <i class="fa fa-plus" id="plus-big" aria-hidden="true"></i>
+    <h4>New Group</h4>
+  </div>
 
+  <div class="user-games">
+
+    <div class="new-game-button">
+      <i class="fa fa-plus" id="plus-big" aria-hidden="true"></i>
+      <h4>New Game</h4>
+    </div>
+
+    <% @user.owned_games.each do |game| %>
+    <div class="individual-game">
+      <div class="game-icon">
+        <img src=" <%= game.image_url %> ">
+      </div>
+      <h4><%= game.name %></h4>
+    </div>
+
+    <% end %>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
