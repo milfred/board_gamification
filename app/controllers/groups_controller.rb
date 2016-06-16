@@ -5,11 +5,8 @@ class GroupsController < ApplicationController
   end
 
   def create
-    p "**********************"
-    p current_user
 
     @group = current_user.created_groups.create(name: group_params[:name], description: group_params[:description])
-    p @group
     input_members = group_params[:member_list]
     @group.member_list = input_members
     if @group.valid?
