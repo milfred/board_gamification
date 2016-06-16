@@ -1,15 +1,15 @@
-require 'Faker'
+# require 'Faker'
 
 user_params = {username: Faker::Internet.user_name, email: Faker::Internet.email , password_digest: Faker::Internet.password , personal_info: Faker::Lorem.sentence}
 membership_params = {member_id: rand(10), group_id: rand(3) }
-group_params = {name: Faker::Space.star_cluster , creator_id: rand(10)}
+group_params = {name: Faker::Internet.user_name , creator_id: rand(10)}
 comment_params = {body: Faker::Hacker.say_something_smart , commenter_id: rand(10) , review_id: rand(20)}
 
 review_params = {rating: rand(5) , title: Faker::Commerce.product_name , body: Faker::Hacker.say_something_smart , reviewer_id: rand(10) , game_id: rand(10) }
 
 ownership_params = {owner_id: rand(10), game_id: rand(10) }
 
-game_params = {name: , description: Faker::Hacker.say_something_smart , number_of_players: rand(6), image_url: "https://metrouk2.files.wordpress.com/2015/06/kitten2.jpg" }
+game_params = {name: Faker::Internet.user_name, description: Faker::Hacker.say_something_smart , number_of_players: rand(6), image_url: "https://metrouk2.files.wordpress.com/2015/06/kitten2.jpg" }
 
 categorization_params = {game_id: rand(7), category_id: rand(5)}
 
