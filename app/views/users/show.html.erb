@@ -9,10 +9,16 @@
   </div>
 
   <div class="user-groups">
-    <% @user.memberships.each do |group| %>
+    <% @user.memberships.each do |membership| %>
       <div>
-        <h3> <%= group.name %> </h3>
-
+        <h3> <%= membership.group.name %> </h3>
+        <ul>
+          <% membership.group.members.each do |member| %>
+          <li> <%= member.username %> </li>
+          <% end %>
+        </ul>
+        <h4>Popular Games</h4>
+        <%= membership.group. %>
       </div>
     <% end %>
   </div>
