@@ -1,16 +1,19 @@
 <div class="container">
 
-  <div class="profile-picture">
-    <img src="http://i.imgur.com/8PKlHjh.jpg?1">
-  </div>
+  <div class="user-details">
 
-  <div class="user-info">
-    <h2><%= @user.personal_info %></h2>
+    <div class="profile-picture">
+      <img src="http://i.imgur.com/8PKlHjh.jpg?1">
+    </div>
+
+    <div class="user-info">
+      <h2><%= @user.personal_info %></h2>
+    </div>
   </div>
 
   <div class="user-groups">
     <% @user.memberships.each do |membership| %>
-      <div>
+      <div class="individual-group">
         <h3> <%= membership.group.name %> </h3>
         <ul>
           <% membership.group.members.each do |member| %>
@@ -18,8 +21,15 @@
           <% end %>
         </ul>
         <h4>Popular Games</h4>
-        <%= membership.group. %>
+        <%= membership.group.members[0].owned_games.name %>
+
+        <h4>Last Meetup</h4>
+
       </div>
     <% end %>
+  </div>
+
+  <div class="new-group-button">
+
   </div>
 </div>
