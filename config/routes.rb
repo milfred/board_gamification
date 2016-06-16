@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :games, only:[:index]
   get '/games/results', to: 'games#results', as: "results"
 
-  root 'users#show'
 
   resources :sessions, only: [:create]
   resources :users, except: [:patch, :put, :delete, :new]

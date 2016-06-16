@@ -19,7 +19,6 @@
 }
 
 .floating {
-  border: 1px solid red;
   display: inline-block;
   vertical-align: top;
   margin-right: 5%;
