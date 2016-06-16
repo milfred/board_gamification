@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :games
 
-
+  resources :groups, only: [:new, :create, :show]
 
 
 
