@@ -1,0 +1,24 @@
+<section id="group-top" class="center-block">
+<h1 class="center-text"><%= @group.name %></h1>
+
+  <div class="members-list">
+    <% @group.members.each do |member| %>
+    <%= link_to(member) do %>
+      <div class="member center-text">
+        <%= member.username %>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</section>
+
+<section id="group-bottom" class="center-block">
+  <h1 class="center-text">Group Games</h1>
+  <% @group.group_games.each do |game| %>
+  <%= link_to(game) do %>
+    <div class="game center-text">
+      <%= game.name %>
+    </div>
+    <% end %>
+  <% end %>
+</section>
