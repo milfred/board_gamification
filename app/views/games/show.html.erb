@@ -1,13 +1,13 @@
 <div class="container">
   <% game = @response_body["boardgames"]["boardgame"] %>
   <div class="game_header">
-   <img src="<%= game['thumbnail'] %>"/>
-   <% game["name"].class == Array ? game_name = game["name"][0] : game_name = game["name"] %>
-   <h1><%= game_name %></h1><BR>
-   Players: <%= game["minplayers"] %> to <%= game["maxplayers"] %> players.<BR>
-   Average play time: <%= game["playingtime"] %><BR>
-   Year Published: <%= game["yearpublished"] %><BR>
-   <a href="" name="game["objectid"]">Add to your collection</a>
+    <img src="<%= game['thumbnail'] %>"/>
+    <% game["name"].class == Array ? game_name = game["name"][0] : game_name = game["name"] %>
+    <h1><%= game_name %></h1><BR>
+    Players: <%= game["minplayers"] %> to <%= game["maxplayers"] %>players.<BR>
+    Average play time: <%= game["playingtime"] %><BR>
+    Year Published: <%= game["yearpublished"] %><BR>
+    <a href="" name="game["objectid"]">Add to your collection</a>
   </div>
    <body>
     <h3>About:</h3>
@@ -15,5 +15,14 @@
    </body>
 
 
+   <% @review = Review.new %>
+    <%= render "shared/review" %>
+  <div class="reviews">
+    <% if @reviews %>
+      <% @reviews.each do |review| %>
+        <%= review.title %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 

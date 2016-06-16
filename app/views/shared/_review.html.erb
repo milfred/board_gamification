@@ -1,0 +1,17 @@
+<%= form_for @review do |f| %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.select :rating, ['1', '2', '3', '4', '5'] %>
+
+  </p>
+  <p>
+    <%= f.submit "submit review" %>
+  </p>
+<% end %>
