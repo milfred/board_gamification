@@ -1,10 +1,9 @@
-
 <div class="container">
 
  <% @response_body.each do |boardgames| %>
     <% boardgames[1]["boardgame"].each do |game_object| %>
        <div class="game_display">
-        <p><a href="/games/<%= game_object["objectid"] %>"><%game_object["name"] %></a></p>
+        <p><a href="/games/<%= game_object["objectid"] %>"><%=game_object["name"] %></a></p>
         <p><%= game_object["yearpublished"] %></p>
       </div>
     <% end %>
