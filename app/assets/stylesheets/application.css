@@ -44,17 +44,18 @@
 .user-details{
   border: 1px solid blue;
   float: left;
+  width: 20%;
 }
 .user-info {
   margin: 0 15% 0 15%;
-  width: 50%;
+  width: 75%;
 }
 .profile-picture {
   margin: 0 25% 0 25%;
 }
 
 .user-groups {
-  margin: 0 10% 0 0;
+  margin: 0 20% 0 0;
   float: right;
   border: 1px solid red;
   width: 850px;
@@ -72,7 +73,7 @@
 .new-group-button{
   position: absolute;
   bottom: 15%;
-  right: 0;
+  right: 15%;
   z-index: -1;
   border: 1px solid green;
 }
