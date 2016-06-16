@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+.header {
+  border-bottom: 1px solid black;
+}
+
+.floating {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 5%;
+}
+
+.search-bar, .user-nav{
+  width: 200px;
+  height: 70px;
+}
+
+.search-bar form {
+  padding: 25% 0 0 0;
+}
+
+.container {
+  clear: both;
+}

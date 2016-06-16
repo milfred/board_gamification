@@ -1,6 +1,6 @@
 # require 'Faker'
 
-user_params = {username: Faker::Internet.user_name, email: Faker::Internet.email , password_digest: Faker::Internet.password , personal_info: Faker::Lorem.sentence}
+user_params = {username: Faker::Internet.user_name, email: Faker::Internet.email , password: "password" , personal_info: Faker::Lorem.sentence}
 membership_params = {member_id: rand(10), group_id: rand(3) }
 group_params = {name: Faker::Internet.user_name , creator_id: rand(10)}
 comment_params = {body: Faker::Hacker.say_something_smart , commenter_id: rand(10) , review_id: rand(20)}
@@ -15,7 +15,10 @@ categorization_params = {game_id: rand(7), category_id: rand(5)}
 
 category_params = {title: Faker::Book.genre }
 
-10.times {User.create(user_params)}
+10.times do
+  User.create!(user_params)
+end
+
 
 35.times {Membership.create(membership_params)}
 

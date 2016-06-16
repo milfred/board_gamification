@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  root 'users#show'
+
+  root "games#index"
+  resources :games, only:[:index]
+  get '/games/results', to: 'games#results', as: "results"
+
+
   resources :sessions, only: [:create]
   resources :users, except: [:patch, :put, :delete, :new]
 
@@ -10,6 +15,8 @@ Rails.application.routes.draw do
   post 'users' => 'users#create'
 
   resources :games
+
+
 
 
 
