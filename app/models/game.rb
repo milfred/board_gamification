@@ -9,4 +9,14 @@ class Game < ActiveRecord::Base
     reviews = this.reviews
     reviews.map { |review| review.rating }.reduce(:+) / reviews.length
   end
+
+  def self.search(search_term)
+    if search_term
+      find(:all, :conditions => ["name LIKE ?", "%#{search}%"])
+    else
+      Game.all
+    end
+  end
+
+
 end
