@@ -14,7 +14,13 @@
   </div >
 
   <div class="user-nav floating">
-    Logged in?
+    <% if logged_in? %>
+
+    <% else %>
+      <!-- <div class="header_login"> -->
+        <%= render partial: "sessions/login_form" %>
+      <!-- </div> -->
+    <% end %>
   </div>
 
 </div>

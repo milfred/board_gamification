@@ -33,6 +33,10 @@
   height: 70px;
 }
 
+.user-nav form {
+  display: inline-block;
+}
+
 .search-bar form {
   padding: 25% 0 0 0;
 }
