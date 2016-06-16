@@ -1,0 +1,19 @@
+<div class="container">
+
+  <div class="profile-picture">
+    <img src="http://i.imgur.com/8PKlHjh.jpg?1">
+  </div>
+
+  <div class="user-info">
+    <h2><%= @user.personal_info %></h2>
+  </div>
+
+  <div class="user-groups">
+    <% @user.memberships.each do |group| %>
+      <div>
+        <h3> <%= group.name %> </h3>
+
+      </div>
+    <% end %>
+  </div>
+</div>
