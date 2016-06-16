@@ -38,12 +38,12 @@ ActiveRecord::Schema.define(version: 20160615202835) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.string   "name",                                                                                                                                                      null: false
+    t.string   "name",                                                                                        null: false
     t.text     "description"
     t.string   "number_of_players"
-    t.string   "image_url",         default: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAZOAAAAJGE3MWQ1N2JmLTViZTAtNGY4My05NWFkLWU0NzQ5YTUzN2Y5OA.jpg"
-    t.datetime "created_at",                                                                                                                                                null: false
-    t.datetime "updated_at",                                                                                                                                                null: false
+    t.string   "image_url",         default: "http://assets.londonist.com/uploads/2007/09/i730/monopoly.jpg"
+    t.datetime "created_at",                                                                                  null: false
+    t.datetime "updated_at",                                                                                  null: false
   end
 
   create_table "groups", force: :cascade do |t|
