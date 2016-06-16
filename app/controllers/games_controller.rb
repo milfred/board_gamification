@@ -9,6 +9,15 @@ class GamesController < ApplicationController
   end
 
   def show
+    url ="http://www.boardgamegeek.com/xmlapi/boardgame/#{params[:id]}"
+    xml_data = open(url)
+    if xml_data.class == StringIO
+      read_file = xml_data.string
+      @response_body = Crack::XML.parse(read_file)
+    else
+      redirect_to "/"
+      @error = "Sorry, that game is missing :("
+    end
   end
 
   def index
