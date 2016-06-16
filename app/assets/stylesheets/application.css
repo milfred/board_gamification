@@ -31,6 +31,11 @@
 .search-bar, .user-nav{
   width: 200px;
   height: 70px;
+  border: 1px solid black;
+}
+
+.user-nav h4 {
+  margin: 0;
 }
 
 .search-bar form {
