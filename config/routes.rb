@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :users, except: [:patch, :put, :delete, :new]
 
   get 'login' => 'sessions#new'
-  delete 'logout' => 'sessions#destroy'
+  get 'logout' => 'sessions#destroy'
 
   get 'register' => 'users#new'
   post 'users' => 'users#create'
