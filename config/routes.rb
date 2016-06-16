@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-
-  root "games#index"
   resources :reviews, except: [:index, :show]
+  root "games#index"
   resources :games, only: [:index]
   get '/games/results', to: 'games#results', as: "results"
 
