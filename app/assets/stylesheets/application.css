@@ -14,6 +14,10 @@
  *= require_self
  */
 
+ /*
+  *= require font-awesome
+  */
+
 .header {
   border-bottom: 1px solid black;
 }
@@ -36,3 +40,89 @@
 .container {
   clear: both;
 }
+
+.user-details{
+  border: 1px solid blue;
+  float: left;
+  width: 20%;
+}
+.user-info {
+  margin: 0 15% 0 15%;
+  width: 75%;
+}
+.profile-picture {
+  margin: 0 25% 0 25%;
+}
+
+.user-groups {
+  margin: 0 20% 0 0;
+  float: right;
+  border: 1px solid red;
+  width: 850px;
+
+}
+
+.individual-group{
+  margin: 10px;
+  border: 1px solid black;
+  width: 30%;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.new-group-button{
+  position: absolute;
+  bottom: 15%;
+  right: 15%;
+  z-index: -1;
+  border: 1px solid green;
+}
+
+
+#plus-big{
+  font-size: 10em;
+}
+
+.user-games{
+  clear: both;
+  border: 1px solid olive;
+  width: 80%;
+}
+.new-game-button{
+  border: 1px solid red;
+  width: 127px;
+  display: relative;
+}
+
+.new-group-button, .new-game-button h4{
+  text-align: center;
+  margin: 0;
+}
+.individual-game{
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px;
+  padding: 5px;
+  border: 2px solid black;
+  text-align: center;
+}
+.individual-game h4{
+  margin: 0;
+
+}
+.game-icon img{
+  width: 200px;
+  height: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

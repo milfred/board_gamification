@@ -1,0 +1,67 @@
+<div class="container">
+
+  <div class="user-details">
+
+    <div class="profile-picture">
+      <img src="http://i.imgur.com/8PKlHjh.jpg?1">
+    </div>
+
+    <div class="user-info">
+      <h2><%= @user.personal_info %></h2>
+    </div>
+  </div>
+
+  <div class="user-groups">
+    <% @user.memberships.each do |membership| %>
+      <div class="individual-group">
+        <h3> <%= membership.group.name %> </h3>
+        <ul>
+          <% membership.group.members.each do |member| %>
+          <li> <%= member.username %> </li>
+          <% end %>
+        </ul>
+        <h4>Popular Games</h4>
+        <%= membership.group.members[0].owned_games.name %>
+
+        <h4>Last Meetup</h4>
+
+      </div>
+    <% end %>
+  </div>
+
+  <div class="new-group-button">
+    <i class="fa fa-plus" id="plus-big" aria-hidden="true"></i>
+    <h4>New Group</h4>
+  </div>
+
+  <div class="user-games">
+
+    <div class="new-game-button">
+      <i class="fa fa-plus" id="plus-big" aria-hidden="true"></i>
+      <h4>New Game</h4>
+    </div>
+
+    <% @user.owned_games.each do |game| %>
+    <div class="individual-game">
+      <div class="game-icon">
+        <img src=" <%= game.image_url %> ">
+      </div>
+      <h4><%= game.name %></h4>
+    </div>
+
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
