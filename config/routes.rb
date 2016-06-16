@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root "headers#index"
+  root "games#index"
+  resources :games, only:[:index]
   get '/games/results', to: 'games#results', as: "results"
 
 
