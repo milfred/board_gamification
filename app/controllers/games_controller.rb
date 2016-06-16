@@ -12,9 +12,8 @@ class GamesController < ApplicationController
   end
 
   def index
-    @games = Game.all
-    # xml_data = open('http://www.boardgamegeek.com/xmlapi/search?search=Catan')
-    # @response_body = Crack::XML.parse(File.read(xml_data))
+    xml_data = open('http://www.boardgamegeek.com/xmlapi/search?search=Catan')
+    @response_body = Crack::XML.parse(File.read(xml_data))
   end
 
   def destroy
