@@ -29,7 +29,15 @@ class GamesController < ApplicationController
     search_q = params[:search]
     xml_data = open("http://www.boardgamegeek.com/xmlapi/search?search=#{search_q.gsub(" ", "%20")}")
     read_file = xml_data
+
+
     @response_body = Crack::XML.parse(read_file)
+    if @response_body["boardgames"]["boardgame"] == nil
+      @response_body = nil
+      @error = "Sorry, no results :("
+    end
+
+
   end
 
   def destroy
