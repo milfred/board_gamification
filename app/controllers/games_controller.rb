@@ -21,8 +21,12 @@ class GamesController < ApplicationController
   end
 
   def index
-    xml_data = open('http://www.boardgamegeek.com/xmlapi/search?search=Catan')
-    @response_body = Crack::XML.parse(File.read(xml_data))
+    if session[:user_id] != nil
+      redirect_to user_path id: session[:user_id]
+    end
+    @user = User.new
+    # xml_data = open('http://www.boardgamegeek.com/xmlapi/search?search=Catan')
+    # @response_body = Crack::XML.parse(File.read(xml_data))
   end
 
   def results
