@@ -1,0 +1,13 @@
+<div class="container">
+  <% @suggested_games.each do |game_name, game_pic_n_number| %>
+    <div class="individual-game">
+      <div class="game-icon">
+        <img src=" <%= game_pic_n_number[0] %> ">
+      </div>
+      <h4>
+        <a href="/games/<%= game_pic_n_number[1] %>"><%= game_name %></a>
+      </h4>
+    </div>
+  <% end %>
+
+</div>

@@ -4,11 +4,11 @@
     <img src="<%= game['thumbnail'] %>"/>
     <% game["name"].class == Array ? game_name = game["name"][0] : game_name = game["name"] %>
     <h1><%= game_name %></h1><BR>
-    Players: <%= game["minplayers"] %> to <%= game["maxplayers"] %>players.<BR>
+    Players: <%= game["minplayers"] %> to <%= game["maxplayers"] %> players.<BR>
     Average play time: <%= game["playingtime"] %><BR>
     Year Published: <%= game["yearpublished"] %><BR>
     Average Rating: <%= @reviews.length == 0 ? "This game has not been reviewed yet." : average_rating %><br>
-    <a href="" name="game["objectid"]">Add to your collection</a>
+    <%= link_to "Add to your collection", ownerships_path(@ownership, :game_id => game["objectid"]), method: "post" %>
   </div>
    <body>
     <h3>About:</h3>
@@ -17,7 +17,6 @@
 
     <%= render "shared/review" %>
   <div class="reviews">
-    <% p @reviews %>
     <% if @reviews %>
       <h2> Reviews </h2>
       <% @reviews.each do |review| %>

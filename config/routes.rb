@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root "games#index"
   resources :games, only: [:index]
   get '/games/results', to: 'games#results', as: "results"
+  get '/games/suggested', to: 'games#suggested', as: "suggested"
 
   resources :sessions, only: [:create]
   resources :users, except: [:update, :edit, :delete, :new]
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
 
   get 'register' => 'users#new'
   post 'users' => 'users#create'
+
+  resources :ownerships, only: [:create, :destroy]
 
   resources :games
 

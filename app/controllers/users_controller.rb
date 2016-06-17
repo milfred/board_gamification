@@ -18,6 +18,20 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @owned_games = Ownership.where(owner_id: @user.id)
+    # Need to iterate and get each ownership.game_id
+    @users_games_hash = {}
+
+    @owned_games.each do |ownership|
+      url ="http://www.boardgamegeek.com/xmlapi/boardgame/#{ownership.game_id}"
+      xml_data = open(url)
+      read_file = xml_data
+      @response_body = Crack::XML.parse(read_file)
+      game = @response_body["boardgames"]["boardgame"]
+      game["name"].class == Array ? game_name = game["name"][0] : game_name = game["name"]
+      @users_games_hash[game_name] = [game["thumbnail"], ownership.game_id]
+    end
+
   end
 
 private
