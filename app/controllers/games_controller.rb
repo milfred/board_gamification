@@ -8,6 +8,7 @@ class GamesController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
     @review = Review.new
     url ="http://www.boardgamegeek.com/xmlapi/boardgame/#{params[:id]}"
     xml_data = open(url)

@@ -1,24 +1,17 @@
 class CommentsController < ApplicationController
 
   def new
-    @comment = Comment.new
   end
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.commenter_id = current_user.id
 
     if @comment.save
-      redirect_to comments_path
-    else
-      render 'new'
+      redirect_to "/games/#{params[:game_id]}"
+    # else
+    #   render 'new'
     end
-  end
-
-  def show
-    @comment = Comment.find(params[:id])
-  end
-
-  def edit
   end
 
   def delete
