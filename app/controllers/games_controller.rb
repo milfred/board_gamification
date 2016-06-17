@@ -9,6 +9,7 @@ class GamesController < ApplicationController
   end
 
   def show
+    @review = Review.new
     url ="http://www.boardgamegeek.com/xmlapi/boardgame/#{params[:id]}"
     xml_data = open(url)
     if xml_data.class == StringIO
