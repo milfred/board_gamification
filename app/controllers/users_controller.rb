@@ -9,7 +9,8 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to register_path
+      # redirect_to register_path
+      redirect_to user_path id: session[:user_id]
     else
       render "new"
     end
