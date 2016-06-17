@@ -5,12 +5,14 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.review_id = params[:review_id]
     @comment.commenter_id = current_user.id
+
 
     if @comment.save
       redirect_to "/games/#{params[:game_id]}"
-    # else
-    #   render 'new'
+    else
+      redirect_to "http://oprah.com"
     end
   end
 
