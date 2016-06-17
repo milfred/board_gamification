@@ -5,10 +5,9 @@ class GroupsController < ApplicationController
   end
 
   def create
-
+    creator_email = "," + current_user.email
     @group = current_user.created_groups.create(name: group_params[:name], description: group_params[:description])
-    input_members = group_params[:member_list]
-    @group.member_list = input_members
+    @group.member_list = group_params[:member_list] + creator_email
     if @group.valid?
       redirect_to group_path(@group)
     else
