@@ -43,7 +43,7 @@ class GamesController < ApplicationController
 
   def suggested
     @suggested_games = {}
-    @random_numbers = Array.new(17) {rand(1..10000)}
+    @random_numbers = Array.new(9) {rand(1..10000)}
 
     @random_numbers.each do |number|
       url ="http://www.boardgamegeek.com/xmlapi/boardgame/#{number}"

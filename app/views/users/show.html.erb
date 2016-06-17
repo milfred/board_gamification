@@ -33,8 +33,10 @@
       </div>
     <% end %>
     <div class="new-group-button">
-      <i class="fa fa-plus" id="plus-big" aria-hidden="true"></i>
-      <h4>New Group</h4>
+      <%= link_to new_group_path do %>
+        <i class="fa fa-plus" id="plus-big" aria-hidden="true"></i>
+        <h4>New Group</h4>
+      <% end %>
     </div>
   </div>
 
