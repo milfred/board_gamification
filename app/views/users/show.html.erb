@@ -43,8 +43,10 @@
   <div class="user-games">
 
     <div class="new-game-button">
-      <i class="fa fa-plus" id="plus-big" aria-hidden="true"></i>
-      <h4>New Game</h4>
+      <%= link_to suggested_path do %>
+        <i class="fa fa-plus" id="plus-big" aria-hidden="true"></i>
+        <h4>New Game</h4>
+      <% end %>
     </div>
 
     <% @users_games_hash.each do |game_name, game_pic| %>

@@ -21,7 +21,8 @@ class UsersController < ApplicationController
     @owned_games = Ownership.where(owner_id: @user.id)
     # Need to iterate and get each ownership.game_id
     @users_games_hash = {}
-    @owned_games.map do |ownership|
+
+    @owned_games.each do |ownership|
       url ="http://www.boardgamegeek.com/xmlapi/boardgame/#{ownership.game_id}"
       xml_data = open(url)
       read_file = xml_data
@@ -30,7 +31,7 @@ class UsersController < ApplicationController
       game["name"].class == Array ? game_name = game["name"][0] : game_name = game["name"]
       @users_games_hash[game_name] = game["thumbnail"]
     end
-    p @users_games_hash
+
   end
 
 private

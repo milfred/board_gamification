@@ -41,6 +41,22 @@ class GamesController < ApplicationController
     end
   end
 
+  def suggested
+    @suggested_games = {}
+    @random_numbers = Array.new(17) {rand(1..10000)}
+
+    @random_numbers.each do |number|
+      url ="http://www.boardgamegeek.com/xmlapi/boardgame/#{number}"
+      xml_data = open(url)
+      read_file = xml_data
+      @response_body = Crack::XML.parse(read_file)
+      game = @response_body["boardgames"]["boardgame"]
+      game["name"].class == Array ? game_name = game["name"][0] : game_name = game["name"]
+      @suggested_games[game_name] = game["thumbnail"]
+    end
+
+  end
+
   def destroy
   end
 
