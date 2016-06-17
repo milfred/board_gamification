@@ -14,7 +14,7 @@
   <div class="user-groups">
     <% @user.groups.each do |group| %>
       <div class="individual-group">
-        <h3> <%= group.name %> </h3>
+        <h3><a href="/groups/<%= group.id %>"><%= group.name %> </a></h3>
         <ul>
           <% group.members.each do |member| %>
           <li> <%= member.username %> </li>
@@ -49,12 +49,14 @@
       <% end %>
     </div>
 
-    <% @users_games_hash.each do |game_name, game_pic| %>
+    <% @users_games_hash.each do |game_name, game_pic_n_number| %>
       <div class="individual-game">
         <div class="game-icon">
-          <img src=" <%= game_pic %> ">
+          <img src=" <%= game_pic_n_number[0] %> ">
         </div>
-        <h4><%= game_name %></h4>
+        <h4>
+          <a href="/games/<%= game_pic_n_number[1] %>"><%= game_name %></a>
+        </h4>
       </div>
     <% end %>
   </div>

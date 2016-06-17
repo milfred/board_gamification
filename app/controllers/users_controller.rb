@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       @response_body = Crack::XML.parse(read_file)
       game = @response_body["boardgames"]["boardgame"]
       game["name"].class == Array ? game_name = game["name"][0] : game_name = game["name"]
-      @users_games_hash[game_name] = game["thumbnail"]
+      @users_games_hash[game_name] = [game["thumbnail"], ownership.game_id]
     end
 
   end
