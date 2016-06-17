@@ -23,7 +23,7 @@
         <h4>Popular Games</h4>
         <ul>
           <% group.group_games.each do |game| %>
-            <li><a href="<%= game_path(game) %>"><%= group.name %></a></li>
+            <li><a href="<%= game_path(game) %>"><%= group_games.name %></a></li>
           <% end %>
         </ul>
 
