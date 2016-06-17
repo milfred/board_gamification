@@ -1,16 +1,13 @@
 <div class="container">
-  <% if @error %>
-    <%= @error %>
-  <% end %>
 
- <% @response_body.each do |boardgames| %>
-    <% boardgames[1]["boardgame"].each do |game_object| %>
-       <div class="game_display">
+  <div class="image-container">
+    <img class="index-img" src="http://i.imgur.com/H3WDih5.jpg">
+    <div class="overlay"><h1>Meet Your Next Game Group</h1></div>
+  </div>
 
-        <p><a href="/games/<%= game_object["objectid"] %>"><%= game_object["name"] %></a></p>
 
-        <p><%= game_object["yearpublished"] %></p>
-      </div>
-    <% end %>
-  <% end %>
+  <div class="index-register">
+    <h1>Register Today!</h1>
+    <%= render partial: "users/form" %>
+  </div>
 </div>
