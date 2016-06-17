@@ -1,6 +1,5 @@
 require 'open-uri'
 
-
 class GamesController < ApplicationController
   def new
   end
@@ -9,35 +8,37 @@ class GamesController < ApplicationController
   end
 
   def show
+    @review = Review.new
     url ="http://www.boardgamegeek.com/xmlapi/boardgame/#{params[:id]}"
     xml_data = open(url)
-    if xml_data.class == StringIO
-      read_file = xml_data.string
+
+      read_file = xml_data
       @response_body = Crack::XML.parse(read_file)
-    else
-      redirect_to "/"
-      @error = "Sorry, that game is missing :("
+      @reviews = Review.where(game_id: params[:id])
+    if @response_body["boardgames"]["boardgame"] == nil
+      @response_body = nil
+      @error = "Sorry, this game does not exist :("
     end
   end
 
   def index
-    xml_data = open('http://www.boardgamegeek.com/xmlapi/search?search=Catan')
-    @response_body = Crack::XML.parse(File.read(xml_data))
+    if session[:user_id] != nil
+      redirect_to user_path id: session[:user_id]
+    end
+    @user = User.new
+    # xml_data = open('http://www.boardgamegeek.com/xmlapi/search?search=Catan')
+    # @response_body = Crack::XML.parse(File.read(xml_data))
   end
 
   def results
     search_q = params[:search]
     xml_data = open("http://www.boardgamegeek.com/xmlapi/search?search=#{search_q.gsub(" ", "%20")}")
     read_file = xml_data
-
-
     @response_body = Crack::XML.parse(read_file)
     if @response_body["boardgames"]["boardgame"] == nil
       @response_body = nil
       @error = "Sorry, no results :("
     end
-
-
   end
 
   def destroy

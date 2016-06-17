@@ -1,0 +1,21 @@
+<div class="review-form">
+  <h2>Leave a Review</h2>
+  <%= form_for @review do |f| %>
+    <p>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+      <%= hidden_field_tag 'game_id', "#{params[:id]}" %>
+    </p>
+    <p>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </p>
+    <p>
+      <%= f.select :rating, ['1', '2', '3', '4', '5'] %>
+
+    </p>
+    <p>
+      <%= f.submit "submit" %>
+    </p>
+  <% end %>
+</div>

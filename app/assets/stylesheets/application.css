@@ -18,6 +18,9 @@
   *= require font-awesome
   */
 
+body {
+  background-color: #D3E0E6;
+}
 .header {
   border-bottom: 1px solid black;
 }
@@ -31,6 +34,11 @@
 .search-bar, .user-nav{
   width: 200px;
   height: 70px;
+  border: 1px solid black;
+}
+
+.user-nav h4 {
+  margin: 0;
 }
 
 .search-bar form {
@@ -161,3 +169,48 @@
 .center-text {
   text-align: center;
 }
+
+.image-container{
+  padding: 15px;
+  position: relative;
+  float: left;
+}
+
+.overlay {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 20%;
+  left: 20%;
+  color: white;
+  font-size: 130%;
+}
+
+.index-register{
+  width: 250px ;
+  height: 250px;
+  float: right;
+  margin-top: 100px;
+  border: 5px solid black;
+}
+
+.index-register h1{
+  margin: 0;
+  text-align: center;
+}
+
+.index-register form{
+  margin: 15% 10% 0 10%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
