@@ -2,6 +2,8 @@
   <%= form_for @comment do |f| %>
     <p><%= f.label :body, "Your comment:"%></p>
     <p><%= f.text_area :body %></p>
+    <%= hidden_field_tag 'review_id', @review_id %>
+    <%= hidden_field_tag 'game_id', params[:id] %>
     <%= f.submit "Leave Comment" %>
   <% end %>
 </div>

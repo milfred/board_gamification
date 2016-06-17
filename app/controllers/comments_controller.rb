@@ -1,25 +1,19 @@
 class CommentsController < ApplicationController
 
   def new
-    @comment = Comment.new
   end
 
   def create
     @comment = Comment.new(comment_params)
-    p @comment
+    @comment.review_id = params[:review_id]
+    @comment.commenter_id = current_user.id
+
 
     if @comment.save
-      redirect_to comments_path
+      redirect_to "/games/#{params[:game_id]}"
     else
-      render 'new'
+      redirect_to "http://oprah.com"
     end
-  end
-
-  def show
-    @comment = Comment.find(params[:id])
-  end
-
-  def edit
   end
 
   def delete

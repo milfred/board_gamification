@@ -26,12 +26,23 @@
           <h4><%= User.find(review.reviewer_id).username %></h4>
           <p>Rating: <%= review.rating %>/5</p>
           <%= review.body %>
+          <% @review_id = review.id %>
           <% if review.reviewer_id == current_user.id %>
             <%=  button_to "Delete", {controller: 'reviews', action: 'destroy', id: review.id }, method: :delete %>
           <% end %>
+        </div>
+        <% @comments = review.comments %>
+        <% if @comments %>
+          <h2> Comments </h2>
+            <% @comments.each do |comment| %>
+              <p><%= comment.body %></p>
+              <%= comment.commenter.username %>
+            <% end %>
+        <% end %>
+        <div class="review-comment-info">
+          <%= render "shared/comment" %>
         </div>
       <% end %>
     <% end %>
   </div>
 </div>
-
