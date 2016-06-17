@@ -11,4 +11,4 @@ Our team worked hard to develop a one stop place on socializing and table-top ga
  - Login features!!
 
 ## Where to check out such a glorious place?
-[Check out our Heroku app!](heroku_url.com)
+[Check out our Heroku app!](https://lit-plateau-47510.herokuapp.com/)

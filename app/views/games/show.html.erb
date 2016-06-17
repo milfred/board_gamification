@@ -1,19 +1,35 @@
 <div class="container">
   <% game = @response_body["boardgames"]["boardgame"] %>
   <div class="game_header">
-   <img src="<%= game['thumbnail'] %>"/>
-   <% game["name"].class == Array ? game_name = game["name"][0] : game_name = game["name"] %>
-   <h1><%= game_name %></h1><BR>
-   Players: <%= game["minplayers"] %> to <%= game["maxplayers"] %> players.<BR>
-   Average play time: <%= game["playingtime"] %><BR>
-   Year Published: <%= game["yearpublished"] %><BR>
-   <a href="" name="game["objectid"]">Add to your collection</a>
+    <img src="<%= game['thumbnail'] %>"/>
+    <% game["name"].class == Array ? game_name = game["name"][0] : game_name = game["name"] %>
+    <h1><%= game_name %></h1><BR>
+    Players: <%= game["minplayers"] %> to <%= game["maxplayers"] %>players.<BR>
+    Average play time: <%= game["playingtime"] %><BR>
+    Year Published: <%= game["yearpublished"] %><BR>
+    <a href="" name="game["objectid"]">Add to your collection</a>
   </div>
    <body>
     <h3>About:</h3>
      <%= game["description"].gsub("<br/>", " ") %>
    </body>
 
-
+    <%= render "shared/review" %>
+  <div class="reviews">
+    <% if @reviews %>
+      <h2> Reviews </h2>
+      <% @reviews.each do |review| %>
+        <div class="review-info">
+          <h3><%= review.title %></h3>
+          <h4><%= User.find(review.reviewer_id).username %></h4>
+          <p>Rating: <%= review.rating %>/5</p>
+          <%= review.body %>
+          <% if review.reviewer_id == current_user.id %>
+            <%=  button_to "Delete", {controller: 'reviews', action: 'destroy', id: review.id }, method: :delete %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 

@@ -9,11 +9,13 @@ class GamesController < ApplicationController
   end
 
   def show
+    @review = Review.new
     url ="http://www.boardgamegeek.com/xmlapi/boardgame/#{params[:id]}"
     xml_data = open(url)
     if xml_data.class == StringIO
       read_file = xml_data.string
       @response_body = Crack::XML.parse(read_file)
+      @reviews = Review.where(game_id: params[:id])
     else
       redirect_to "/"
       @error = "Sorry, that game is missing :("
