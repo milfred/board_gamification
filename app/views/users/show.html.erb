@@ -47,14 +47,13 @@
       <h4>New Game</h4>
     </div>
 
-    <% @user.owned_games.each do |game| %>
-    <div class="individual-game">
-      <div class="game-icon">
-        <img src=" <%= game.image_url %> ">
+    <% @users_games_hash.each do |game_name, game_pic| %>
+      <div class="individual-game">
+        <div class="game-icon">
+          <img src=" <%= game_pic %> ">
+        </div>
+        <h4><%= game_name %></h4>
       </div>
-      <h4><%= game.name %></h4>
-    </div>
-
     <% end %>
   </div>
 </div>
