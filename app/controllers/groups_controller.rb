@@ -8,7 +8,7 @@ class GroupsController < ApplicationController
     creator_email = "," + current_user.email
     @group = current_user.created_groups.new(name: group_params[:name], description: group_params[:description])
     @group.member_list = group_params[:member_list] + creator_email
-    if @group.valid?
+    if @group.save
       redirect_to group_path(@group)
     else
       render :new
