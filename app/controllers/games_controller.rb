@@ -1,6 +1,5 @@
 require 'open-uri'
 
-
 class GamesController < ApplicationController
   def new
   end
@@ -12,13 +11,13 @@ class GamesController < ApplicationController
     @review = Review.new
     url ="http://www.boardgamegeek.com/xmlapi/boardgame/#{params[:id]}"
     xml_data = open(url)
-    if xml_data.class == StringIO
-      read_file = xml_data.string
+
+      read_file = xml_data
       @response_body = Crack::XML.parse(read_file)
       @reviews = Review.where(game_id: params[:id])
-    else
-      redirect_to "/"
-      @error = "Sorry, that game is missing :("
+    if @response_body["boardgames"]["boardgame"] == nil
+      @response_body = nil
+      @error = "Sorry, this game does not exist :("
     end
   end
 
@@ -31,15 +30,11 @@ class GamesController < ApplicationController
     search_q = params[:search]
     xml_data = open("http://www.boardgamegeek.com/xmlapi/search?search=#{search_q.gsub(" ", "%20")}")
     read_file = xml_data
-
-
     @response_body = Crack::XML.parse(read_file)
     if @response_body["boardgames"]["boardgame"] == nil
       @response_body = nil
       @error = "Sorry, no results :("
     end
-
-
   end
 
   def destroy
