@@ -12,16 +12,21 @@
   </div>
 
   <div class="user-groups">
-    <% @user.memberships.each do |membership| %>
+    <% @user.groups.each do |group| %>
       <div class="individual-group">
-        <h3> <%= membership.group.name %> </h3>
+        <h3> <%= group.name %> </h3>
         <ul>
-          <% membership.group.members.each do |member| %>
+          <% group.members.each do |member| %>
           <li> <%= member.username %> </li>
           <% end %>
         </ul>
         <h4>Popular Games</h4>
-        <%= membership.group.members[0].owned_games.name %>
+        <ul>
+          <% group.group_games.each do |game| %>
+            <li><a href="<%= game_path(game) %>"><%= group.name %></a></li>
+          <% end %>
+        </ul>
+
 
         <h4>Last Meetup</h4>
 
@@ -53,16 +58,3 @@
     <% end %>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
