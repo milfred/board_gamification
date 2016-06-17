@@ -7,6 +7,7 @@
     Players: <%= game["minplayers"] %> to <%= game["maxplayers"] %>players.<BR>
     Average play time: <%= game["playingtime"] %><BR>
     Year Published: <%= game["yearpublished"] %><BR>
+    Average Rating: <%= @reviews.length == 0 ? "This game has not been reviewed yet." : average_rating %><br>
     <a href="" name="game["objectid"]">Add to your collection</a>
   </div>
    <body>
@@ -16,6 +17,7 @@
 
     <%= render "shared/review" %>
   <div class="reviews">
+    <% p @reviews %>
     <% if @reviews %>
       <h2> Reviews </h2>
       <% @reviews.each do |review| %>
