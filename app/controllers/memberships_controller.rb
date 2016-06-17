@@ -1,4 +1,4 @@
-# class MembershipsController < ApplicationController
+class MembershipsController < ApplicationController
 
 #   def create
 #     group = Group.find_by(membership_params[:id])
@@ -16,4 +16,4 @@
 #     params.require(:membership).permit(:member_id, :group_id, :member)
 #   end
 
-# end
+end
