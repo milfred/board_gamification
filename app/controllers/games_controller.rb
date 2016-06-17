@@ -8,13 +8,13 @@ class GamesController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
     @review = Review.new
     url ="http://www.boardgamegeek.com/xmlapi/boardgame/#{params[:id]}"
     xml_data = open(url)
     read_file = xml_data
     @response_body = Crack::XML.parse(read_file)
     @reviews = Review.where(game_id: params[:id])
-
     if @response_body["boardgames"]["boardgame"] == nil
       @response_body = nil
       @error = "Sorry, this game does not exist :("
