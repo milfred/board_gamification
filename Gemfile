@@ -29,7 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'faker', '>= 1.6.3'
 gem 'font-awesome-rails'
-
+gem 'rails_12factor', group: :production
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
