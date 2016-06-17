@@ -2,6 +2,7 @@
 <h1 class="center-text"><%= @group.name %></h1>
 
   <div class="members-list">
+    <%= link_to %>
     <% @group.members.each do |member| %>
     <%= link_to(member) do %>
       <div class="member center-text">
