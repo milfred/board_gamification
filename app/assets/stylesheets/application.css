@@ -1,25 +1,7 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
- /*
-  *= require font-awesome
-  */
 
 body {
   background-color: #D3E0E6;
+  font-family: papyrus;
 }
 .header {
   border-bottom: 1px solid black;
@@ -31,25 +13,33 @@ body {
   margin-right: 5%;
 }
 
-.search-bar, .user-nav{
-  width: 200px;
-  height: 70px;
+.search-bar {
+  height: 40px;
+  /*margin-right: 10%;*/
   border: 1px solid black;
+  padding: 20px;
+}
+
+
+.user-nav{
+  width: 350px;
+  height: 10%;
+  border: 1px solid black;
+}
+
+.user-nav p {
+  padding: 5px;
+  display: inline-block;
 }
 
 .user-nav h4 {
   margin: 0;
 }
 
-.search-bar form {
-  padding: 25% 0 0 0;
-}
-
 .container {
   clear: both;
   width: 1500px;
 }
-
 
 .user-details{
   border: 1px solid blue;
@@ -68,7 +58,6 @@ body {
 .user-groups {
   margin: 0 0 0 0;
   float: right;
-  /*border: 1px solid red;*/
   width: 70%;
 }
 
@@ -87,7 +76,6 @@ body {
   top: 50px;
   left: 200px;
   display: inline-block;
-  /*border: 1px solid green;*/
 }
 
 
@@ -186,11 +174,11 @@ body {
 }
 
 .index-register{
-  width: 250px ;
-  height: 250px;
+  width: 20%;
+  min-height: 30%;
   float: right;
   margin-top: 100px;
-  border: 5px solid black;
+  border: 3px solid black;
 }
 
 .index-register h1{
@@ -201,16 +189,3 @@ body {
 .index-register form{
   margin: 15% 10% 0 10%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
