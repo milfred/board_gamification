@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'register' => 'users#new'
   post 'users' => 'users#create'
 
+  resources :ownerships, only: [:create, :destroy]
+
   resources :games
 
   resources :groups, only: [:new, :create, :show]
