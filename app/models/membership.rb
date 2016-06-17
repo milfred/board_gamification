@@ -4,4 +4,13 @@ class Membership < ActiveRecord::Base
 
   validates :member, presence: true, on: :update
   validates :group, presence: true, on: :update
+
+  def member
+    self.member
+  end
+
+  def member=(email)
+    member = User.find_by(email: email)
+    membership.create!(member: member)
+  end
 end
