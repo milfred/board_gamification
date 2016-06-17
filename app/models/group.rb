@@ -15,7 +15,7 @@ class Group < ActiveRecord::Base
 
     temp_members.each do |email|
       member = User.find_by(email: email)
-      memberships.create!(member: member)
+      memberships.new(member: member)
     end
   end
 

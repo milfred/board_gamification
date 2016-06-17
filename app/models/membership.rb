@@ -9,8 +9,8 @@ class Membership < ActiveRecord::Base
     self.member
   end
 
-  def member=(email)
-    member = User.find_by(email: email)
-    membership.create!(member: member)
-  end
+  # def member=(email)
+  #   member = User.find_by(email: email)
+  #   membership.create!(member: member)
+  # end
 end
