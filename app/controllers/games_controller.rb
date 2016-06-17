@@ -54,7 +54,6 @@ class GamesController < ApplicationController
       game["name"].class == Array ? game_name = game["name"][0] : game_name = game["name"]
       @suggested_games[game_name] = [game["thumbnail"], number]
     end
-    p @suggested_games
 
   end
 
