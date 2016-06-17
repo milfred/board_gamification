@@ -9,7 +9,7 @@ class Game < ActiveRecord::Base
 
   def average_rating
     reviews = this.reviews
-    reviews.map { |review| review.rating }.reduce(:+) / reviews.length
+    reviews.each { |review| review.rating }.reduce(:+) / reviews.length
   end
 
   def self.search(search_term)
