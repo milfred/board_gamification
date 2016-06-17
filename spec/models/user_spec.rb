@@ -2,9 +2,6 @@ require 'rails_helper'
 
 describe User do
   let(:momo) { User.new(id: 1, username: "momo", email: "momo@momo.org", password: "password", personal_info: "Ahhh, hey JQuery, could you please give me some information in JSON format?") }
-  let(:monopoly) { Game.new(name: "Monopoly: DBC Edition", description: "No one ever makes any money", number_of_players: "about 63, but the next cohort is going to be huge!", image_url: "http://devbootcamp.com/assets/img/locations/chi/matt-baker.jpg")}
-  let(:group1) { Group.new(name: "Group 1", description: "This is group 1", creator_id: 1)}
-  let(:group2) { Group.new(name: "Group 2", description: "This is group 2", creator_id: 1)}
 
   describe "user attributes" do
     it "returns it's username" do
@@ -33,5 +30,5 @@ describe User do
     end
   end
 
-  
+
 end
