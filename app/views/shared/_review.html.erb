@@ -2,6 +2,7 @@
   <p>
     <%= f.label :title %>
     <%= f.text_field :title %>
+    <%= hidden_field_tag 'game_id', "#{params[:id]}" %>
   </p>
   <p>
     <%= f.label :body %>
