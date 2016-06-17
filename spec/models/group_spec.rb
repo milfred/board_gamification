@@ -4,6 +4,8 @@ describe Group do
   describe "db columns" do
     it { should have_db_column(:name) }
     it { should have_db_column(:creator_id) }
+    subject { Group.new(name: "name", description: "description", creator_id: "1")}
+    it { should validate_uniqueness_of(:name) }
   end
 
   describe "associations" do

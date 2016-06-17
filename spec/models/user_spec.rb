@@ -6,6 +6,9 @@ describe User do
     it { should have_db_column(:email) }
     it { should have_db_column(:password_digest) }
     it { should have_db_column(:personal_info) }
+    subject { User.new(username: "name", email: "email", password: "password")}
+    it { should validate_uniqueness_of(:username) }
+    it { should validate_uniqueness_of(:email) }
   end
 
   describe "associations" do
